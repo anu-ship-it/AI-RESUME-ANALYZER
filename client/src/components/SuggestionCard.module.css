@@ -1,0 +1,88 @@
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s var(--ease-out);
+  animation: slideIn 0.4s var(--ease-out) both;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card:hover {
+  border-color: var(--border-default);
+  background: var(--bg-card-hover);
+}
+
+.card.critical {
+  border-left: 3px solid var(--danger);
+}
+
+.card.improvement {
+  border-left: 3px solid var(--accent);
+}
+
+.card.positive {
+  border-left: 3px solid var(--accent2);
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.iconBox {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.4;
+}
+
+.chevron {
+  transition: transform 0.25s var(--ease-out);
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.chevron.open {
+  transform: rotate(180deg);
+}
+
+.detail {
+  padding: 0 16px 14px 58px;
+}
+
+.detail p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}

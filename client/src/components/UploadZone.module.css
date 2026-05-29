@@ -1,0 +1,235 @@
+.wrapper {
+  width: 100%;
+}
+
+.dropzone {
+  position: relative;
+  width: 100%;
+  border: 2px dashed var(--border-default);
+  border-radius: 20px;
+  padding: 64px 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  background: var(--bg-card);
+  overflow: hidden;
+}
+
+.dropzone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, var(--accent-dim) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.dropzone:hover::before,
+.dropzone.active::before {
+  opacity: 1;
+}
+
+.dropzone:hover,
+.dropzone.active {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
+}
+
+.dropzone.hasFile {
+  border-color: var(--accent2);
+  border-style: solid;
+  background: rgba(0, 212, 170, 0.04);
+}
+
+.dropzone.hasFile::before {
+  background: radial-gradient(ellipse at 50% 0%, var(--accent2-dim) 0%, transparent 70%);
+  opacity: 1;
+}
+
+.dropzone.error {
+  border-color: var(--danger);
+  background: var(--danger-dim);
+}
+
+.hiddenInput {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.iconWrapper {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.dropzone:hover .iconWrapper,
+.dropzone.active .iconWrapper {
+  background: var(--accent-dim);
+  border-color: rgba(245, 166, 35, 0.3);
+  transform: scale(1.05);
+}
+
+.dropzone.hasFile .iconWrapper {
+  background: var(--accent2-dim);
+  border-color: rgba(0, 212, 170, 0.3);
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  color: var(--text-secondary);
+  transition: color 0.3s;
+}
+
+.dropzone:hover .icon,
+.dropzone.active .icon {
+  color: var(--accent);
+}
+
+.dropzone.hasFile .icon {
+  color: var(--accent2);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.subtitle span {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.formats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.formatTag {
+  padding: 4px 10px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* File Preview */
+.filePreview {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: 14px;
+  margin-top: 16px;
+}
+
+.fileIconWrapper {
+  width: 44px;
+  height: 44px;
+  background: var(--accent2-dim);
+  border: 1px solid rgba(0, 212, 170, 0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fileInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.fileName {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fileSize {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.removeBtn {
+  width: 32px;
+  height: 32px;
+  background: var(--danger-dim);
+  border: 1px solid rgba(255, 87, 87, 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  color: var(--danger);
+}
+
+.removeBtn:hover {
+  background: rgba(255, 87, 87, 0.2);
+}
+
+.errorMsg {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: var(--danger-dim);
+  border: 1px solid rgba(255, 87, 87, 0.2);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--danger);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .dropzone {
+    padding: 40px 20px;
+  }
+}
